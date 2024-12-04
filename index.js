@@ -1,35 +1,38 @@
 
-import {cliente} from "c:/Users/PICHAU/Desktop/ALURA/JS-POO/cliente";
-import {contaCorrente} from "c:/Users/PICHAU/Desktop/ALURA/JS-POO/ContaCorrente";
-
-
-const contaCorrentePedro = new contaCorrente(); 
+import {cliente} from "./cliente.js";
+import {contaCorrente} from "./ContaCorrente.js";
 
 
 const cliente1 = new cliente();
-const cliente2 = new cliente();
-
 cliente1.nome = "Carla";
 cliente1.cpf = 51411710052;
 
 
+const cliente2 = new cliente();
 cliente2.nome = "Pedro";
 cliente2.cpf = 21751400089;
+
+const contaCorrenteCarla = new contaCorrente();
+contaCorrenteCarla.agencia = 102;
+contaCorrenteCarla._saldo = 0;
+contaCorrenteCarla.cliente = cliente1
+contaCorrenteCarla.depositar(500);
+contaCorrenteCarla.cliente.cpf = 20202020020;
+
+const contaCorrentePedro = new contaCorrente();
+contaCorrentePedro.cliente = cliente2
 contaCorrentePedro.agencia = 1001;
-contaCorrentePedro.saldo = 0;
-
-// contaCorrentePedro.saldo += 100;
-// contaCorrentePedro.saldo += 100;
-
-// console.log(cliente1);
-console.log(cliente2, contaCorrentePedro);
-
-const valorDepositado = contaCorrentePedro.depositar(200);
-
-console.log(valorDepositado);
+contaCorrentePedro._saldo = 0;
 
 
-const valorSacado = contaCorrentePedro.sacar(50)
+contaCorrenteCarla.transferir(500 , contaCorrentePedro);
+console.log(contaCorrenteCarla);
+console.log(contaCorrentePedro);
 
-console.log(valorSacado);
+// const valorDepositado = contaCorrentePedro.depositar(200);
+// console.log(valorDepositado);
+
+
+// const valorSacado = contaCorrentePedro.sacar(50)
+// console.log(valorSacado);
 

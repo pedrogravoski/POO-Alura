@@ -1,29 +1,32 @@
-export class contaCorrente{
+export class contaCorrente {
     agencia;
-    #saldo;
-    
-    
-    sacar(valor){
-        if(this.#saldo >= valor){
-            this.#saldo -= valor
-            return valor; 
-        }else{
-            console.log("ERRO - saldo insuficiente! ")
+    cliente;
+
+    _saldo;
+
+
+    sacar(valor) {
+        if (this._saldo >= valor) {
+            this._saldo -= valor;
+            return valor;
+        } else {
+            console.log("ERRO - saldo insuficiente! ");
         }
 
     }
 
 
-    depositar(valor){
+    depositar(valor) {
         if (valor <= 0) {
             return;
         }
-            this.#saldo += valor; 
-            return this.#saldo ;
-            
-                      
-        
+        this._saldo += valor;
+        return this._saldo;
+    }
 
+    transferir(valor, conta){
+        const valorSacado = this.sacar(valor);
+        conta.depositar(valorSacado);
     }
 
 }

@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/pedrogravoski/POO-Alura/issues"
   },
-  "homepage": "https://github.com/pedrogravoski/POO-Alura#readme"
+  "homepage": "https://github.com/pedrogravoski/POO-Alura#readme",
+  "type": "module"
 }
